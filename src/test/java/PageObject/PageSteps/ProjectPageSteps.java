@@ -1,6 +1,7 @@
 package PageObject.PageSteps;
 
 import com.codeborne.selenide.Condition;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,7 +13,7 @@ import static PageObject.PageElements.TaskScreenElem.taskDescription;
 import static PageObject.PageElements.TaskScreenElem.taskSummary;
 
 public class ProjectPageSteps {
-    @Then("Открыть все задачи проекта")
+    @Then("Пользователь открыл все задачи проекта")
     public static void openAllTasks() {
         allTasksButton.click();
     }
@@ -23,7 +24,7 @@ public class ProjectPageSteps {
         System.out.println("Количество задач в проекте: " + tasksCount.substring(tasksCount.lastIndexOf(" ")+1));
     }
 
-    @When("Пользователь нашел задачу с названием {string}")
+    @Then("Пользователь нашел задачу с названием {string}")
     public static void searchTask(String taskSummary) {
         searchField.setValue(taskSummary);
         searchButton.click();
@@ -48,7 +49,7 @@ public class ProjectPageSteps {
         createTaskButton.shouldBe(Condition.enabled).click();
     }
 
-    @Then("Открыть созданную задачу")
+    @And("Пользователь открыл созданную задачу")
     public static void goToCreatedTask() {
         taskCreationLabel.shouldBe(Condition.visible).click();
         Assertions.assertEquals("Test", projectNameValue.text());

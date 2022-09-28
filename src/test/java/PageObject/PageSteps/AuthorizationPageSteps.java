@@ -15,7 +15,7 @@ public class AuthorizationPageSteps {
         Selenide.open(url);
     }
 
-    @Then("Авторизоваться с логином {string} и паролем {string}")
+    @Then("Пользователь авторизовался с логином {string} и паролем {string}")
     public static void login (String login, String password){
         loginField.shouldBe(Condition.visible).sendKeys(login);
         passwordField.shouldBe(Condition.visible).sendKeys(password);

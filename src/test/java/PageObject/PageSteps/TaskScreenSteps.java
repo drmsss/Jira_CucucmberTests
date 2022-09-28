@@ -11,14 +11,14 @@ import static com.codeborne.selenide.Selenide.sleep;
 
 public class TaskScreenSteps {
 
-    @Then("Перевести задачу в статус В РАБОТЕ")
+    @Then("Пользователь переводит задачу в статус В РАБОТЕ")
     public static void setStatusInProgress() {
         inProgressButton.shouldBe(Condition.enabled).click();
         closePopupButton.shouldBe(Condition.visible).click();
         sleep(2000); // ждем обновления статуса
         Assertions.assertEquals("В РАБОТЕ", statusLabel.text());
     }
-    @Then("Перевести задачу в статус ВЫПОЛНЕНО")
+    @Then("Пользователь переводит задачу в статус ВЫПОЛНЕНО")
     public static void setStatusDone() {
         businessProcessButton.shouldBe(Condition.enabled).click();
         doneButton.shouldBe(Condition.visible).shouldBe(Condition.enabled).click();
